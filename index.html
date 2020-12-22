@@ -3,137 +3,32 @@
 <html>
     <head>
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     
     <body>
-        <script>
-            // Choose computer's next move
-            function computerPlay() {
-                // Generate random integer (0, 1, 2) and store in randNum
-                let randNum = Math.floor(Math.random() * 3);
+        <h1>ROCK PAPER SCISSORS</h1>
+        <h2>The Ultimate Battle</h2>
 
-                switch (randNum) {
-                    // If randNum === 0, return 'Rock'
-                    case 0:
-                        return 'rock';
-                        break;
-                    // Else if randNum === 1, return 'Paper'
-                    case 1: 
-                        return 'paper';
-                        break;
-                    // Else, return 'Scissors'
-                    case 2: 
-                        return 'scissors';
-                        break;
-                    // Return error if randNum doesn't match one of the expected cases
-                    default:
-                        return 'Error';
-                }
-            }
+        <div class="flex-container">
+            <input class="flex-item" type="image" src="images/rock.png" id="Rock">
+            <input class="flex-item" type="image" src="images/paper.png" id="Paper">
+            <input class="flex-item" type="image" src="images/scissors.png" id="Scissors">
+        </div> 
 
-            // Allow player to make a move
-            function playerPlay() {
-                let play = prompt("What's your move?");
-                play = play.toLowerCase();
-                
-                // Make sure play is valid
-                if (play === "rock" || play === "paper" || play === "scissors") {
-                    return play;
-                }
+        <div id="score">You: 0 - Opponent: 0</div>
 
-                // Redo play if invalid
-                else {
-                    alert("Invalid move. Try again.");
-                    playerPlay();
-                }
-            }
-
-            // Determine who won the round
-            function playRound(computerSelection, playerSelection) {
-                // Respond if player chooses 'Rock'
-                if (playerSelection === 'rock') {
-                    if (computerSelection === 'scissors') {
-                        return 'player';
-                    }
-                    else if (computerSelection === 'rock') {
-                        return 'tie';
-                    }
-                    else if (computerSelection === 'paper') {
-                        return 'computer';
-                    }
-                }
-                // Respond if player chooses 'Paper'
-                else if (playerSelection === 'paper') {
-                    if (computerSelection === 'scissors') {
-                        return 'computer';
-                    }
-                    else if (computerSelection === 'rock') {
-                        return 'player';
-                    }
-                    else if (computerSelection === 'paper') {
-                        return 'tie';
-                    }
-                }
-                // Respond if player chooses 'Scissors'
-                else if (playerSelection === 'scissors') {
-                    if (computerSelection === 'scissors') {
-                        return 'tie';
-                    }
-                    else if (computerSelection === 'rock') {
-                        return 'computer';
-                    }
-                    else if (computerSelection === 'paper') {
-                        return 'player';
-                    }
-                }
-            }
-
-            // Run a best-of-five match
-            function game() {
-                let computerScore = 0;
-                let playerScore = 0;
-
-                let playerMove;
-                let computerMove;
-                let roundWinner;
-                
-                // Loop that repeats until someone reaches 3 points
-                while (true) {
-                    // Record player's and computer's moves
-                    playerMove = playerPlay();
-                    computerMove = computerPlay();
-
-                    // Call playRound() to figure out who won round
-                    roundWinner = playRound(computerMove, playerMove);
-
-                    // Update scores and log result of round
-                    if (roundWinner === "player") {
-                        playerScore++;
-                        console.log(`You win the round! \n ${playerMove} beats ${computerMove}.`);
-                    }
-                    else if (roundWinner === "computer") {
-                        computerScore++;
-                        console.log(`You lose the round. \n ${computerMove} beats ${playerMove}.`);
-                    }
-                    else if (roundWinner === "tie") {
-                        console.log(`This round is a tie. \n ${playerMove} ties ${computerMove}.`);
-                    }
-                    console.log(`You: ${playerScore} - Opponent: ${computerScore}`);
-
-                    // End game if someone has reached 3 points
-                    if (playerScore >= 3) {
-                        console.log("YOU WIN");
-                        break;
-                    }
-                    else if (computerScore >= 3) {
-                        console.log("YOU LOSE");
-                        break;
-                    }
-                }
-            }
-
-            // Start the game
-            game();
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
+
+
+<!-- 
+    Add outline to buttons when clicked
+    Add a set of buttons to show computer's choice
+    Arrange elements spatially on page
+    Display score
+    Display message when you win or lose
+    Stop game when user wins or loses
+    Add "play again" button
+ -->

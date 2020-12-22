@@ -1,0 +1,37 @@
+body {
+    background-color: #5a9ba6;
+    background-image: url('images/background.png');
+    text-align: center;
+    font-family: copperplate, sans-serif;
+}
+
+input {
+    width: 200px;
+    border-radius: 30px;
+    padding: 15px;
+    transition: background-color .4s;
+}
+
+input:hover {
+    box-shadow: 0px 0px 12px 0px#28ca7052;
+    background-color: #28ca7052;
+}
+
+input:focus {
+    outline-style: none;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    height: 220px;
+    margin-top: 30px;
+}
+
+.selected {
+    background-color: rgba(0, 255, 64, 0.562) !important;
+}
+
+#score {
+    margin-top: 30px;
+}
