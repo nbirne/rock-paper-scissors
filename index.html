@@ -4,19 +4,59 @@
     <head>
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://kit.fontawesome.com/2b33c6d871.js" crossorigin="anonymous"></script>
     </head>
     
     <body>
         <h1>ROCK PAPER SCISSORS</h1>
         <h2>The Ultimate Battle</h2>
+        
 
-        <div class="flex-container">
-            <input class="flex-item" type="image" src="images/rock.png" id="Rock">
-            <input class="flex-item" type="image" src="images/paper.png" id="Paper">
-            <input class="flex-item" type="image" src="images/scissors.png" id="Scissors">
-        </div> 
+        <div class="flex-container" id="selection-area">
+            <div class="flex-item rps-group">
+                <h3>ROCK, PAPER, OR SCISSORS?</h3>
+                <span class="fa fas fa-hand-rock"></span>
+                <span class="fa fas fa-hand-paper"></span>
+                <span class="fa fas fa-hand-scissors"></span>
+                
+                <!-- OLD BUTTONS TO CHOOSE MOVE:
+                <input class="flex-item" type="image" src="images/rock.png" id="Rock">
+                <input class="flex-item" type="image" src="images/paper.png" id="Paper">
+                <input class="flex-item" type="image" src="images/scissors.png" id="Scissors">
+                -->
+            </div> 
+        </div>
 
         <div id="score">You: 0 - Opponent: 0</div>
+        <div id="end"></div>
+
+        <div class="flex-container" id="move-display">
+            <div class="rps-group flex-item" id="player-move">
+                <h4>YOUR MOVE:</h4>
+                <span class="fa far fa-hand-rock"></span>
+                <span class="fa far fa-hand-paper"></span>
+                <span class="fa far fa-hand-scissors"></span>
+            </div>
+
+            <div class="rps-group flex-item" id="computer-move">
+                <h4>OPPONENT'S MOVE:</h4>
+                <span class="fa far fa-hand-rock"></span>
+                <span class="fa far fa-hand-paper"></span>
+                <span class="fa far fa-hand-scissors"></span>
+            </div>
+            <!--
+            <div class="rps-group flex-item" id="player-move">
+                <img src="images/rock.png">
+                <img src="images/paper.png">
+                <img src="images/scissors.png">
+            </div>
+            <div class="rps-group flex-item" id="computer-move">
+                <img src="images/rock.png">
+                <img src="images/paper.png">
+                <img src="images/scissors.png">
+            </div>
+            -->
+        </div>
 
         <script src="script.js"></script>
     </body>
@@ -24,10 +64,9 @@
 
 
 <!-- 
-    Add outline to buttons when clicked
+    Plan out layout on paper
     Add a set of buttons to show computer's choice
     Arrange elements spatially on page
-    Display score
     Display message when you win or lose
     Stop game when user wins or loses
     Add "play again" button

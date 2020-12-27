@@ -1,31 +1,53 @@
 body {
-    background-color: #5a9ba6;
+    background-color: #3d405b;
     background-image: url('images/background.png');
     text-align: center;
     font-family: copperplate, sans-serif;
+    color: #f4f1de;
 }
 
-input {
-    width: 200px;
+span {
     border-radius: 30px;
     padding: 15px;
     transition: background-color .4s;
 }
 
-input:hover {
-    box-shadow: 0px 0px 12px 0px#28ca7052;
-    background-color: #28ca7052;
+.fa {
+    font-size: 200px;
 }
 
-input:focus {
-    outline-style: none;
+#selection-area .fa {
+    font-size: 200px;
+}
+
+#move-display .fa {
+    font-size: 100px;
+}
+
+@media (max-width: 800px) {
+    #selection-area .fa {
+        font-size: 120px;
+    }
+
+    #move-display .fa {
+        font-size: 80px;
+    }
+}
+
+span:hover {
+    box-shadow: 0px 0px 12px 0px#28ca7052;
+    background-color: #81b29a;
 }
 
 .flex-container {
     display: flex;
     justify-content: center;
-    height: 220px;
     margin-top: 30px;
+    color: #f2cc8f;
+}
+
+.rps-group {
+    border: 1px solid #264653;
 }
 
 .selected {
@@ -34,4 +56,9 @@ input:focus {
 
 #score {
     margin-top: 30px;
+    font-size: 30px;
+}
+
+#move-display {
+    flex-wrap: wrap;
 }

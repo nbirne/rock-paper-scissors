@@ -16,6 +16,9 @@ buttons.forEach(button => button.addEventListener('transitionend', e => {
 function displayResults(computerMove, playerMove) {
     let roundWinner = playRound(computerMove, playerMove);
     let score = document.querySelector('#score');
+    let end = document.querySelector('#end');
+
+    end.textContent = ``;
     
     // Update scores and log result of round
     if (roundWinner === "player") {
@@ -29,9 +32,11 @@ function displayResults(computerMove, playerMove) {
 
     // End game if someone has reached 3 points
     if (playerScore >= 5) {
+        end.textContent = `You win! Make another move to start a new match.`
         resetScore();
     }
     else if (computerScore >= 5) {
+        end.textContent = `You lose. Make another move to start a new match.`
         resetScore();
     }
 }
