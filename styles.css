@@ -9,11 +9,7 @@ body {
 span {
     border-radius: 30px;
     padding: 15px;
-    transition: background-color .4s;
-}
-
-.fa {
-    font-size: 200px;
+    transition: color .3s, background-color .3s;
 }
 
 #selection-area .fa {
@@ -34,7 +30,7 @@ span {
     }
 }
 
-span:hover {
+.choice:hover {
     box-shadow: 0px 0px 12px 0px#28ca7052;
     background-color: #81b29a;
 }
@@ -47,16 +43,33 @@ span:hover {
 }
 
 .rps-group {
-    border: 1px solid #264653;
-}
-
-.selected {
-    background-color: rgba(0, 255, 64, 0.562) !important;
+    border: 1px solid #81b29a7a;
 }
 
 #score {
     margin-top: 30px;
     font-size: 30px;
+}
+
+#end {
+    margin-top: 30px;
+    font-size: 45px;
+}
+
+.scoreText {
+    padding: 0;
+}
+
+.wonRound {
+    color: #67A285;
+}
+
+.lostRound {
+    color: #e07a5f;
+}
+
+.tiedRound {
+    color:  #f4f1de;
 }
 
 #move-display {

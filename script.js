@@ -1,26 +1,37 @@
 let computerScore = 0;
 let playerScore = 0;
 
-// Set up event listeners
-const buttons = document.querySelectorAll('input');
-buttons.forEach(button => button.addEventListener('click', e => {
-    e.target.classList.add('selected');
+// Set up event listeners for the three choices
+const choices = document.querySelectorAll('.choice');
+choices.forEach(choice => choice.addEventListener('click', e => {
     let playerPlay = e.target.id;
     displayResults(computerPlay(), playerPlay);
 }));
-buttons.forEach(button => button.addEventListener('transitionend', e => {
-    e.target.classList.remove('selected');
+choices.forEach(choice => choice.addEventListener('transitionend', e => {
+    e.target.classList.remove('wonRound', 'lostRound', 'tiedRound');
+}));
+
+// Set up event listeners for the scoreText (which displays the point tallies)
+const scoreText = document.querySelectorAll('.scoreText');
+scoreText.forEach(text => text.addEventListener('transitionend', e => {
+    e.target.classList.remove('wonRound', 'lostRound');
 }));
 
 // Display results after each round
 function displayResults(computerMove, playerMove) {
     let roundWinner = playRound(computerMove, playerMove);
+    let playerScoreText = document.querySelector('#playerScoreText');
+    let computerScoreText = document.querySelector('#computerScoreText');
     let score = document.querySelector('#score');
-    let end = document.querySelector('#end');
 
-    end.textContent = ``;
+    highlightMoves(computerMove, playerMove, roundWinner);
+
+    // Remove end message if starting new round
+    if (playerScore === 0 && computerScore === 0) {
+        end.textContent = "";
+    }
     
-    // Update scores and log result of round
+    // Update scores
     if (roundWinner === "player") {
         playerScore++;
     }
@@ -28,15 +39,27 @@ function displayResults(computerMove, playerMove) {
         computerScore++;
     }
 
-    score.textContent = `You: ${playerScore} - Opponent: ${computerScore}`;
+    // Display updated scores
+    playerScoreText.textContent = `${playerScore}`;
+    computerScoreText.textContent = `${computerScore}`;
 
-    // End game if someone has reached 3 points
+    // Change text color of scoreText to show who won/lost
+    if (roundWinner === "player") {
+        playerScoreText.classList.add("wonRound");
+        computerScoreText.classList.add("lostRound");
+    }
+    else if (roundWinner === "computer") {
+        computerScoreText.classList.add("wonRound");
+        playerScoreText.classList.add("lostRound");
+    }
+
+    // End game if someone has reached 5 points
     if (playerScore >= 5) {
-        end.textContent = `You win! Make another move to start a new match.`
+        end.textContent = `You won! Make another move to start a new match.`
         resetScore();
     }
     else if (computerScore >= 5) {
-        end.textContent = `You lose. Make another move to start a new match.`
+        end.textContent = `You lost. Make another move to start a new match.`
         resetScore();
     }
 }
@@ -107,5 +130,35 @@ function playRound(computerSelection, playerSelection) {
         else if (computerSelection === 'Paper') {
             return 'player';
         }
+    }
+}
+
+// Highlight the previous move of the player and computer, using correct color
+function highlightMoves(computerMove, playerMove, roundWinner) {
+    // Clear previous move
+    const moves = document.querySelectorAll(".move");
+    moves.forEach(move => move.classList.remove("wonRound", "lostRound", "tiedRound"));
+    
+    // Select player and computer moves' display
+    const playerDisplay = document.querySelector(`#player${playerMove}`);
+    const computerDisplay = document.querySelector(`#computer${computerMove}`);
+
+    // Select the choice the user clicked
+    const choice = document.querySelector(`#${playerMove}`)
+
+    if (roundWinner === "player") {
+        playerDisplay.classList.add("wonRound");
+        computerDisplay.classList.add("lostRound");
+        choice.classList.add("wonRound");
+    }
+    else if (roundWinner === "computer") {
+        playerDisplay.classList.add("lostRound");
+        computerDisplay.classList.add("wonRound");
+        choice.classList.add("lostRound");
+    }
+    else {
+        playerDisplay.classList.add("tiedRound");
+        computerDisplay.classList.add("tiedRound");
+        choice.classList.add("tiedRound");
     }
 }
