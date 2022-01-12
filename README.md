@@ -1,10 +1,8 @@
 # rock-paper-scissors
 
-Simple version of the Rock Paper Scissors game from The Odin Project curriculum.
-    - https://www.theodinproject.com/courses/foundations/lessons/rock-paper-scissors
-    - https://www.theodinproject.com/courses/foundations/lessons/dom-manipulation
+[Try it out!](https://nbirne.github.io/rock-paper-scissors/)
 
-The live version of the game can be found [here](https://nbirne.github.io/rock-paper-scissors/).
+Online rock paper scissors game, inspired by [The Odin Project](https://www.theodinproject.com/courses/foundations/lessons/rock-paper-scissors) curriculum.
 
 The logic behind the game involves variables, functions, loops, and conditions in JS, and was not too challenging to create. Creating a functional UI took more effort. A few key things I was able to practice as I made the game:
 
