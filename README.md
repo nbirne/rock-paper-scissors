@@ -1,6 +1,6 @@
 # rock-paper-scissors
 
-[Try it out!](https://nbirne.github.io/rock-paper-scissors/)
+## [Try it out!](https://nbirne.github.io/rock-paper-scissors/)
 
 Online rock paper scissors game, inspired by [The Odin Project](https://www.theodinproject.com/courses/foundations/lessons/rock-paper-scissors) curriculum.
 
