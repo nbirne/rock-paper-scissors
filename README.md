@@ -4,7 +4,7 @@
 
 Online rock paper scissors game, inspired by [The Odin Project](https://www.theodinproject.com/courses/foundations/lessons/rock-paper-scissors) curriculum.
 
-The logic behind the game involves variables, functions, loops, and conditions in JS, and was not too challenging to create. Creating a functional UI took more effort. A few key things I was able to practice as I made the game:
+The logic behind the game involves variables, functions, loops, and conditions in JS. A few key things I was able to practice as I made the game:
 
 - When choosing a color palette, it was very helpful to play around with https://coolors.co/, rather than randomly testing out different color combinations
 - I initially tried to use image inputs for icons, but text icons from https://fontawesome.com/ proved much easier to work with. They were easy to resize, recolor, and arrange on the page.
